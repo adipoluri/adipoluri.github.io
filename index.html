@@ -2,11 +2,12 @@
 <head>
 <meta name=generator content="Hugo 0.92.1">
 <meta charset=utf-8>
+<link type=text/css rel=stylesheet href=assets/css/main.css>
 <title>Adi Poluri</title>
 <style>body{margin:0}</style>
 </head>
 <body>
-<script src=/scripts/three/build/three.js></script>
+<script src=/assets/js/three/build/three.js></script>
 <script>let camera,scene,renderer,material,mouseX=0,mouseY=0,windowHalfX=window.innerWidth/2,windowHalfY=window.innerHeight/2;init(),animate();function init(){camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,2,2e3),camera.position.z=1500,scene=new THREE.Scene,scene.fog=new THREE.Fog(328965,2e3,3500),scene.background=new THREE.Color(2171169);const f=(new THREE.TextureLoader).load('/textures/dot.png'),c=new THREE.BufferGeometry,d=[],e=[],i=new THREE.Color,a=3e3,b=a/2,g=25e3;for(let c=0;c<g;c++){const f=Math.random()*a-b,h=Math.random()*a-b,i=Math.random()*a-b;d.push(f,h,i);const j=Math.random(),k=Math.random(),l=Math.random();e.push(j,k,l)}c.setAttribute('position',new THREE.Float32BufferAttribute(d,3)),c.setAttribute('color',new THREE.Float32BufferAttribute(e,3)),material=new THREE.PointsMaterial({size:10,sizeAttenuation:!0,map:f,alphaTest:1,transparent:!0,vertexColors:!0}),material.color.setHSL(1,.3,.7);const h=new THREE.Points(c,material);scene.add(h),renderer=new THREE.WebGLRenderer,renderer.setPixelRatio(window.devicePixelRatio),renderer.setSize(window.innerWidth,window.innerHeight),document.body.appendChild(renderer.domElement),document.body.style.touchAction='none',window.addEventListener('resize',onWindowResize)}function onWindowResize(){windowHalfX=window.innerWidth/2,windowHalfY=window.innerHeight/2,camera.aspect=window.innerWidth/window.innerHeight,camera.updateProjectionMatrix(),renderer.setSize(window.innerWidth,window.innerHeight)}function animate(){requestAnimationFrame(animate),render()}function render(){const a=Date.now()*5e-5;scene.rotateY(.0015),renderer.render(scene,camera)}</script>
 <div>
 <h1 id=title><a href=/posts/>Go Home</a></h1>
