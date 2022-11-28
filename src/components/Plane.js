@@ -1,9 +1,9 @@
 import React, { forwardRef, useRef } from "react"
 import { useFrame } from "@react-three/fiber"
+import { useBlock } from "./blocks"
+import state from "../config"
 import lerp from "lerp"
 import "./CustomMaterial"
-import { useBlock } from "../blocks"
-import state from "../store"
 
 const Plane = forwardRef(({ color = "white", shift = 1, opacity = 1, args, map, ...props }, ref) => {
   const { viewportHeight, offsetFactor } = useBlock()
@@ -17,7 +17,7 @@ const Plane = forwardRef(({ color = "white", shift = 1, opacity = 1, args, map, 
   })
   return (
     <mesh ref={ref} {...props}>
-      <planeBufferGeometry args={args} />
+      <planeGeometry args={args} />
       <customMaterial ref={material} color={color} map={map} transparent opacity={opacity} />
     </mesh>
   )

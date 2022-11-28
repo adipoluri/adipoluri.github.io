@@ -1,5 +1,91 @@
-@import url("https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap");
+/* Fonts */
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-Bold'), url('./fonts/AvenirNext-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-BoldItalic'), url('./fonts/AvenirNext-BoldItalic.woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-DemiBold'), url('./fonts/AvenirNext-DemiBold.woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-DemiBoldItalic'), url('./fonts/AvenirNext-DemiBoldItalic.woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-Heavy'), url('./fonts/AvenirNext-Heavy.woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-HeavyItalic'), url('./fonts/AvenirNext-HeavyItalic.woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-Italic'), url('./fonts/AvenirNext-Italic.woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-Medium'), url('./fonts/AvenirNext-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-MediumItalic'), url('./fonts/AvenirNext-MediumItalic.woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-Regular'), url('./fonts/AvenirNext-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-UltraLight'), url('./fonts/AvenirNext-UltraLight.woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('AvenirNext-UltraLightItalic'), url('./fonts/AvenirNext-UltraLightItalic.woff2');
+  font-weight: 200;
+  font-style: italic;
+}  
+
+
+
+/* Styles */
 *,
 *::after,
 *::before {
@@ -8,6 +94,12 @@
 
 :root {
   font-size: 20px;
+  --c-primary: rgb(209, 197, 173);
+  --c-secondary: rgba(200,200,200,.85);
+  --c-tertiary: rgba(61, 58, 50, 0.45);
+  
+  --v-space: 3rem;
+  --border-radius: min(10vw, var(--v-space));
 }
 
 ::selection {
@@ -20,14 +112,15 @@ body {
   padding: 0;
   background: #0c0f13;
   overflow: hidden;
-  font-family: "Sulphur Point", sans-serif;
-  color: #8b8b8b;
-  font-size: 0.9rem;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+  color: var(--c-secondary);
+  font-size: min(3.7vw,0.9em);
 }
 
 a {
-  color: #545454;
-  text-decoration: none;
+  color: var(--c-primary);
+  /* text-decoration: none; */
+  font-weight: 600;
 }
 
 a:focus,
@@ -83,9 +176,70 @@ a:hover {
   margin-right: 1.5rem;
 }
 
+.top-left {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c-primary);
+  transform: translate3d(10%, 10%, 0) !important;
+  animation: fadeIn 2.5s;
+  -webkit-animation: fadeIn 2.5s;
+  -moz-animation: fadeIn 2.5s;
+  -o-animation: fadeIn 2.5s;
+  -ms-animation: fadeIn 2.5s;
+}
+
 .bottom-left {
   padding: 1.5rem;
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--c-secondary);
+  white-space: nowrap;
   transform: translate3d(0, -100%, 0) !important;
+  animation: fadeIn 3.5s;
+  -webkit-animation: fadeIn  3.5s;
+  -moz-animation: fadeIn  3.5s;
+  -o-animation: fadeIn  3.5s;
+  -ms-animation: fadeIn  3.5s;
+}
+
+.top-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  transform: translate3d(0, -80%, 0) !important;
+  animation: fadeIn 2.5s;
+  -webkit-animation: fadeIn  2.5s;
+  -moz-animation: fadeIn  2.5s;
+  -o-animation: fadeIn  2.5s;
+  -ms-animation: fadeIn  2.5s;
+}
+
+.blur-box {
+  background: var(--c-tertiary);
+  backdrop-filter: saturate(180%) blur(40px);
+  -webkit-backdrop-filter: saturate(180%) blur(40px);
+  
+  position: relative;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  
+}
+.blur-box:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.blur-box:last-child {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .canvas > div {
@@ -131,4 +285,36 @@ a:hover {
   .bottom-left {
     padding: 0 0 2rem 3.7rem;
   }
+  .top-left {
+    padding: 2rem 0 0 2rem;
+  }
+  .top-heading {
+    padding: 1rem 0 0 1rem;
+  }
+}
+
+/* Fade in*/
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
