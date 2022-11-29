@@ -1,7 +1,7 @@
 import React, {useRef, useMemo} from "react"
 import { useFrame} from "@react-three/fiber"
 import { Matrix4, Vector3} from "three"
-import { useBlock } from "../components/blocks" 
+import { useBlock } from "./Blocks" 
 
 export default function Dots() {
     const { contentMaxWidth: w} = useBlock()

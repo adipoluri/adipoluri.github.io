@@ -7,13 +7,6 @@ const state = {
   zoom: 75,
   mouse: [0, 0],
   z:0,
-  palette: {
-    textColor:"#ebddc3",
-    accentColor:"#b22b27",
-    singleColorMode:true,
-    ballSingle:61,
-    ballMultiple: [2,8,13,14,15,29,50,51, 53, 54, 57, 61, 62, 66, 73, 95, 96] //18
-  },
   introduction: {
     offset: 1,
     factor: 1.75,
@@ -21,6 +14,24 @@ const state = {
     image: "/me.jpg",
     aspect: 1.51,
     text: "Currently, I do independent research focused on how we can enable data neutrality on a web dominated by data moats. In my spare time, I create and maintain a number of widely used open-source projects. I’m curious about how we can better incentivize public goods funding, support better interactions with computers and data, and be more responsible stewards of technology. In this era of my life, I’m working towards being someone who is  unabashedly excited and curious about the world."
+  },
+  experience: {
+    offset: 2,
+    factor: 1.75,
+    header: "Experience",
+    aspect: 2.0,
+    sections: [
+      { employer: "DaoAI Robotics", employerLink:"https://www.daoai.com/", title: "Computer Vision Engineer", duration: "Jan 2022 - Aug 2022", description:" adasdasd " },
+      { employer: "ICBC",employerLink:"", title: "RPA Engineer", duration: "May 2021 - Aug 2021", description:"" },
+      { employer: "picoTera Electronics",employerLink:"https://www.picotera.co/", title: "Firmware Engineer", duration: "Jan 2021 - Apr 2021", description:"" }
+    ]
+  },
+  palette: {
+    textColor:"#ebddc3",
+    accentColor:"#d1c5ad",
+    singleColorMode:true,
+    ballSingle:61,
+    ballMultiple: [2,8,13,14,15,29,50,51, 53, 54, 61, 62, 66, 73, 95, 96] //16
   },
   stripes: [
     { offset: 0, color: "#000", height: 13 },

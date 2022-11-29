@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from "react"
 import { useFrame } from "@react-three/fiber"
-import { useBlock } from "./blocks"
+import { useBlock } from "./Blocks"
 import state from "../config"
 import lerp from "lerp"
 import "./CustomMaterial"

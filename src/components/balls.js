@@ -10,20 +10,20 @@ import niceColors from "nice-color-palettes"
 
 const rfs = MathUtils.randFloatSpread
 const tempColor = new Color()
-const swatchIndex = state.palette.singleColorMode ? state.palette.ballSingle : state.palette.ballMultiple[MathUtils.randInt(0,16)]
+const swatchIndex = state.palette.singleColorMode ? state.palette.ballSingle : state.palette.ballMultiple[MathUtils.randInt(0,15)]
 console.info("Using Pallet #" + String(swatchIndex))
 const colours = Array.from({ length: 200 }, () => ({ color: niceColors[swatchIndex][Math.floor(Math.random() * 5)], scale: 0.25 + Math.random() }))
 
 function Balls({ mat = new Matrix4(), vec = new Vector3(), ...props }) {
     const [ref, api] = useSphere(() => ({ args: [1], mass: 1, angularDamping: 0.1, linearDamping: 0.1, position: [rfs(20), rfs(20), -50+rfs(20)] }))
     const colorArray = useMemo(() => Float32Array.from(new Array(state.ballCount).fill().flatMap((_, i) => tempColor.set(colours[i].color).toArray())), [state.ballCount])
-    useFrame(() => {
+    useFrame((threeState) => {
       for (let i = 0; i < state.ballCount; i++) {
         // Get current whereabouts of the instanced sphere
         ref.current.getMatrixAt(i, mat)
         // Normalize the position and multiply by a negative force.
         // This is enough to drive it towards the center-point.
-        api.at(i).applyForce(vec.setFromMatrixPosition(mat).normalize().multiplyScalar(-50).toArray(), [0, 0, 0])
+        api.at(i).applyForce(vec.setFromMatrixPosition(mat).normalize().multiplyScalar(-35).toArray(), [Math.sin(threeState.clock.elapsedTime), -Math.sin(threeState.clock.elapsedTime),0])
       }
     })
     return( 

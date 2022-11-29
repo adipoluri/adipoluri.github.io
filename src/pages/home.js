@@ -10,15 +10,22 @@ import lerp from "lerp"
 import { Text, MultilineText } from "../components/Text"
 import Diamonds from "../components/diamonds/Diamonds"
 import Plane from "../components/Plane"
-import { Block, useBlock } from "../components/blocks"
+import { Block, useBlock } from "../components/Blocks"
 import state from "../config"
 import "../styles.css"
-import Dots from "../components/dot";
-import PhysicsBalls from "../components/balls"
+import Dots from "../components/Dot";
+import PhysicsBalls from "../components/Balls"
+import {ReactComponent as LinkDrasil} from '../icons/yggdrasil.svg';
 
+//Background
 function Background() {
     return (
       <> 
+        {state.stripes.map(({ offset, color, height }, index) => (
+        <Block key={index} factor={-1.5} offset={offset}>
+            <Plane args={[50, height, 32, 32]} shift={-4} color={color} rotation={[0, 0, Math.PI / 8]} position={[0, 0, -10]} />
+        </Block>
+        ))}
         <PhysicsBalls />
         <Diamonds />
         <Dots />
@@ -46,7 +53,7 @@ function Landing() {
             </Block>
             <Block factor={1.0}>
             <Html className="bottom-left" style={{ width: pixelWidth}} position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
-            CS Student @ UBC,{mobile ? <br /> : " "}Software Engineer,{mobile ? <br /> : " "} temp add text here.
+                CS Student @ UBC,{mobile ? <br /> : " "}Software Engineer,{mobile ? <br /> : " "} temp add text here.
             </Html>
             </Block>
         </Block>
@@ -54,6 +61,17 @@ function Landing() {
     )
 }
 
+//Links
+function LinkDrasilLink() {
+    const { canvasWidth, canvasHeight } = useBlock()
+    return (
+        <Html className="yggdrasil" position={[(canvasWidth-2.5)/2,canvasHeight/2,100]}>
+            <a className="yggdrasil-link" href="/#01">
+                <LinkDrasil fill={state.palette.accentColor} width="2.5em" height="2.5em" />
+            </a>
+        </Html>
+    )
+}
 //Introduction
 function Introduction() {
   const { contentMaxWidth: w, canvasWidth, margin, mobile } = useBlock()
@@ -64,66 +82,97 @@ function Introduction() {
   const size = state.introduction.aspect < 1 && !mobile ? 0.6 : 1
   const alignRight = (canvasWidth - w * size - margin) / 2
   const pixelWidth = w * state.zoom * size
-  const factor = state.introduction.factor
-  const offset = state.introduction.offset
-  const aspect = state.introduction.aspect
-  const index = state.introduction.index
-  const text = state.introduction.text
-  const header = state.introduction.header
+  const {factor,offset,aspect,index,text,header} = state.introduction
   
   return (
     <Block factor={factor} offset={offset}>
         <group position={[-alignRight, 0, 0]}>
+            <Block factor={0.2}>
+                <Text opacity={0.5} size={w * 0.5} color="#1A1E2A" position={[((w) / 2) * size, (w * size) / aspect / 1, -1]}>
+                    {"Me"}
+                </Text>
+            </Block>
             <Html className="top-heading" position={[((-w) * size) / 2, (w * size) / aspect / 2 + 0.5, -1]}>
                 {header}
             </Html>
-            <group position={[0, 0, 5]}>
+            <group position={[0, 0, 4]}>
                 <Plane map={image} args={[1, 1, 32, 32]} shift={75} size={size} aspect={aspect} scale={[w * size, (w * size) / aspect, 100]} frustumCulled={false} />
             </group>
             <Html
                 style={{ width: pixelWidth}}
                 position={[(-w * size) / 2, (-w * size) / 2 / aspect - 0.2, 10]}
-                className="blur-box"
+                className="blur-box both"
                 >
-            <div tabIndex={index}>
-                {text}
-                <strong>
-                    {text}
-                </strong>
-                <a href="google.com">
-                    alex vo
-                </a>
-            </div>
-            
+            <div tabIndex={index}>{ text }<a href="#01">Jorgan</a><strong>{ text }</strong></div>
             </Html>
-            <Block factor={0.2}>
-            <Text opacity={0.5} size={w * 0.5} color="#1A1E2A" position={[((w) / 2) * size, (w * size) / aspect / 1, -1]}>
-                {"Me"}
-            </Text>
-            </Block>
         </group>
     </Block>
   )
 }
 
+
+function Experience() {
+    const { contentMaxWidth: w, canvasWidth, margin, mobile} = useBlock()
+    const alignRight = (canvasWidth - w - margin) / 2
+    const pixelWidth = (canvasWidth-margin) * state.zoom
+    const {factor,offset,aspect,header} = state.experience
+    const stackType = mobile ? "" : "flex"
+    const paddingTitle = mobile ? "0" : "2rem" 
+    const paddingDescription = mobile ? "1rem 0 0 0"  : "2rem 2rem 2rem 0" 
+    
+    return (
+        <Block factor={factor} offset={offset}>
+            <group position={[-alignRight, 0, 0]}>
+                <Block factor={0.2}>
+                    <Text opacity={0.5} size={w * 0.5} color="#1A1E2A" position={[w/ 2, w / aspect, -1]}>
+                        {"Exp"}
+                    </Text>
+                </Block>
+                <Html className="top-heading" position={[-w / 2, w/ aspect / 2 + 0.5, -1]}>
+                    {header}
+                </Html>
+                <Html position={[-w / 2, w / aspect / 2, 10]}>
+                    {state.experience.sections.map(({ employer, employerLink, title, duration, description }, index) => (
+                    <div key={employer} className="blur-box" style={{ width: pixelWidth}} tabIndex={index}>
+                        <div style={{display:stackType}}>  
+                            <div className="entry title" style={{margin:paddingTitle}}>
+                                {employerLink==""?employer:<a href={employerLink}>{ employer }</a>}
+                                <br/>
+                                { title }
+                                <br/>
+                                { duration }
+                            </div>
+                            <div className="entry description" style={{padding:paddingDescription}}> 
+                                { description }casacsa as das dasd asd ad a
+                                <strong>
+                                    Didlo asd asdsa d 
+                                </strong>
+                                asdadasd
+                            </div>
+                        </div>
+                    </div>
+                    ))}
+                </Html>
+            </group>
+        </Block>
+    )
+}
+
+
 //Experience, Education, Projects etc.
 function Content() {
-  const { contentMaxWidth: w, canvasWidth, canvasHeight } = useBlock()
-  return (
-    <> 
-      <Introduction />
-      {state.stripes.map(({ offset, color, height }, index) => (
-        <Block key={index} factor={-1.5} offset={offset}>
-          <Plane args={[50, height, 32, 32]} shift={-4} color={color} rotation={[0, 0, Math.PI / 8]} position={[0, 0, -10]} />
-        </Block>
-      ))}
-      <Block factor={1.25} offset={8}>
-        <Html style={{ color: "white" }} className="bottom-left" position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
-          Culture is not your friend.
-        </Html>
-      </Block>
-    </>
-  )
+    const { canvasWidth, canvasHeight } = useBlock()
+    return (
+        <> 
+            <Introduction />
+            <Experience />
+            <Block factor={1.25} offset={8}>
+            <Html style={{ color: "white" }} className="bottom-left" position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
+                Culture is not your friend.
+            </Html>
+            </Block>
+        </>
+    )
 }
 
 //Fade-in
@@ -165,6 +214,7 @@ export default function Home() {
     <>
         <Canvas shadows dpr={[1, 2]} orthographic camera={{ zoom: state.zoom, position: [0, 0, 500] }}>
             <Suspense fallback={<Html center className="loading" children="Initializing..." />}>
+                <LinkDrasilLink />
                 <Startup />
                 <Lighting />
                 <Background/>
