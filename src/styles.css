@@ -142,8 +142,22 @@ a.yggdrasil-link{
   -moz-animation: fadeIn 2.5s;
   -o-animation: fadeIn 2.5s;
   -ms-animation: fadeIn 2.5s;
-  
 }
+
+.yggdrasil-label{
+  opacity: 0.4;
+  font-size: 0.6rem;
+  font-weight: 600;
+  transform: rotate(90deg) !important;
+  white-space: nowrap;
+  padding: 1.5rem;
+  animation: fadeIn 4.5s;
+  -webkit-animation: fadeIn 4.5s;
+  -moz-animation: fadeIn 4.5s;
+  -o-animation: fadeIn 4.5s;
+  -ms-animation: fadeIn 4.5s;
+}
+
 .yggdrasil:hover{
   opacity: 1.0;
   scale:1.1;
@@ -212,6 +226,11 @@ a.yggdrasil-link{
   -ms-animation: fadeIn  2.5s;
 }
 
+.experience-container {
+  display: "flex";
+  flex-direction: column;
+}
+
 .entry {
   flex: 1;
 }
@@ -223,10 +242,31 @@ a.yggdrasil-link{
 
 .entry.description{
   font-weight: normal;
-  font-size:  min(4vw,1.5em);
+  font-size:  min(4vw,1.3em);
   line-height: 1.4;
 }
 
+.technology-list {
+  font-size:  min(2.5vw,1rem);
+  font-weight: 500;
+  word-spacing:  1em;
+}
+
+
+.footer-heading {
+  font-size: min(5vw,1em);
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.footer {
+  margin: auto;
+  opacity: 0.7;
+  width: 50%;
+  text-align: center;
+  vertical-align: 'baseline';
+  padding: 2em 0 0 0;
+}
 
 .blur-box {
   background: var(--c-tertiary2);

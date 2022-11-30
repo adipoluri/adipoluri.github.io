@@ -7,7 +7,7 @@ import { Html} from "@react-three/drei"
 import { TextureLoader, LinearFilter} from "three"
 import lerp from "lerp"
 //locals
-import { Text, MultilineText } from "../components/Text"
+import { Text } from "../components/Text"
 import Diamonds from "../components/diamonds/Diamonds"
 import Plane from "../components/Plane"
 import { Block, useBlock } from "../components/Blocks"
@@ -16,6 +16,8 @@ import "../styles.css"
 import Dots from "../components/Dot";
 import PhysicsBalls from "../components/Balls"
 import {ReactComponent as LinkDrasil} from '../icons/yggdrasil.svg';
+import { AiFillGithub,AiOutlineYoutube,AiOutlineLink,AiFillHeart } from "react-icons/ai";
+import {MdOutlineWavingHand} from "react-icons/md"
 
 //Background
 function Background() {
@@ -40,38 +42,45 @@ function Landing() {
     const pixelWidth = w * state.zoom 
     return (
         <>
-        <Block factor={1} offset={0}>
-            <Block factor={1.0}>
-            <Html className="top-left" position={[-canvasWidth / 2, canvasHeight / 2, 0]}>
-                adi poluri .tech
-            </Html>
+            <Block factor={1} offset={0}>
+                <Block factor={1.0}>
+                    <Html className="top-left" position={[-canvasWidth / 2, canvasHeight / 2, 0]}>
+                        adi poluri .tech
+                    </Html>
+                </Block>
+                <Block factor={1.2}>
+                    <Text left size={w * 0.15} position={[-w / 3.2, 0.5, -1]} color={state.palette.textColor}>
+                        ADI
+                    </Text>
+                </Block>
+                <Block factor={1.0}>
+                    <Html className="bottom-left" style={{ width: pixelWidth}} position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
+                        CS Student @ UBC,{mobile ? <br /> : " "}Software Engineer,{mobile ? <br /> : " "} temp add text here.
+                    </Html>
+                </Block>
             </Block>
-            <Block factor={1.2}>
-            <Text left size={w * 0.15} position={[-w / 3.2, 0.5, -1]} color={state.palette.textColor}>
-                ADI
-            </Text>
-            </Block>
-            <Block factor={1.0}>
-            <Html className="bottom-left" style={{ width: pixelWidth}} position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
-                CS Student @ UBC,{mobile ? <br /> : " "}Software Engineer,{mobile ? <br /> : " "} temp add text here.
-            </Html>
-            </Block>
-        </Block>
         </>
     )
 }
 
+
+
 //Links
 function LinkDrasilLink() {
-    const { canvasWidth, canvasHeight } = useBlock()
+    const { mobile, canvasWidth, canvasHeight } = useBlock()
     return (
-        <Html className="yggdrasil" position={[(canvasWidth-2.5)/2,canvasHeight/2,100]}>
-            <a className="yggdrasil-link" href="/#01">
-                <LinkDrasil fill={state.palette.accentColor} width="2.5em" height="2.5em" />
-            </a>
-        </Html>
+        <>
+            <Html className="yggdrasil" position={[(canvasWidth-(mobile?2:3))/2,canvasHeight/2,100]}>
+                <a className="yggdrasil-link" href="#/linkdrasil">
+                    <LinkDrasil fill={state.palette.accentColor} width="2.5em" height="2.5em" />
+                </a>
+            </Html>
+        </>
     )
 }
+
+
+
 //Introduction
 function Introduction() {
   const { contentMaxWidth: w, canvasWidth, margin, mobile } = useBlock()
@@ -115,7 +124,7 @@ function Experience() {
     const { contentMaxWidth: w, canvasWidth, margin, mobile} = useBlock()
     const alignRight = (canvasWidth - w - margin) / 2
     const pixelWidth = (canvasWidth-margin) * state.zoom
-    const {factor,offset,aspect,header} = state.experience
+    const {factor,offset,aspect} = state.experience
     const stackType = mobile ? "" : "flex"
     const paddingTitle = mobile ? "0" : "2rem" 
     const paddingDescription = mobile ? "1rem 0 0 0"  : "2rem 2rem 2rem 0" 
@@ -127,31 +136,64 @@ function Experience() {
                     <Text opacity={0.5} size={w * 0.5} color="#1A1E2A" position={[w/ 2, w / aspect, -1]}>
                         {"Exp"}
                     </Text>
-                </Block>
-                <Html className="top-heading" position={[-w / 2, w/ aspect / 2 + 0.5, -1]}>
-                    {header}
-                </Html>
+                </Block> 
                 <Html position={[-w / 2, w / aspect / 2, 10]}>
-                    {state.experience.sections.map(({ employer, employerLink, title, duration, description }, index) => (
-                    <div key={employer} className="blur-box" style={{ width: pixelWidth}} tabIndex={index}>
-                        <div style={{display:stackType}}>  
-                            <div className="entry title" style={{margin:paddingTitle}}>
-                                {employerLink==""?employer:<a href={employerLink}>{ employer }</a>}
-                                <br/>
-                                { title }
-                                <br/>
-                                { duration }
+                    <div className="experience-container">
+                        <div className="top-heading">
+                                {state.experience.header}
+                        </div>
+                        <div style={{flex:1, padding:"0 0 40vh 0"}}> 
+                            {state.experience.sections.map(({ employer, employerLink, title, duration, description }, index) => (
+                            <div key={employer} className="blur-box" style={{ width: pixelWidth}} tabIndex={index}>
+                                <div style={{display:stackType}}>  
+                                    <div className="entry title" style={{margin:paddingTitle}}>
+                                        {employerLink===""?employer:<a href={employerLink} target="_blank" rel="noreferrer">{ employer }</a>}
+                                        <br/>
+                                        { title }
+                                        <br/>
+                                        { duration }
+                                    </div>
+                                    <div className="entry description" style={{padding:paddingDescription}}> 
+                                        { description }casacsa as das dasd asd ad a
+                                        <strong>
+                                            Didlo asd asdsa d 
+                                        </strong>
+                                        asdadasd
+                                    </div>
+                                </div>
                             </div>
-                            <div className="entry description" style={{padding:paddingDescription}}> 
-                                { description }casacsa as das dasd asd ad a
-                                <strong>
-                                    Didlo asd asdsa d 
-                                </strong>
-                                asdadasd
-                            </div>
+                            ))}
+                        </div>
+                        <div className="top-heading">
+                                {state.projects.header}
+                        </div>
+                        <div style={{flex:1, padding:"0 0 10vh 0"}}>
+                            {state.projects.sections.map(({ projectName, githubLink, ytLink, relevantLink, technologies, description }, index) => (
+                                <div key={projectName} className="blur-box" style={{ width: pixelWidth}} tabIndex={index}>
+                                    <div style={{display:stackType}}>  
+                                        <div className="entry title" style={{margin:paddingTitle}}>
+                                            {githubLink===""?projectName:<a href={githubLink} target="_blank" rel="noreferrer">{ projectName }</a>}
+                                            <div className="technology-list">
+                                                { technologies }
+                                            </div>
+                                            {githubLink===""?"":<a href={githubLink} target="_blank" rel="noreferrer"><AiFillGithub /></a>}
+                                            {ytLink===""?"":<a href={ytLink} target="_blank" rel="noreferrer"><AiOutlineYoutube /></a>}
+                                            {relevantLink===""?"":<a href={relevantLink} target="_blank" rel="noreferrer"><AiOutlineLink /></a>}
+                                        </div>
+                                        <div className="entry description" style={{padding:paddingDescription}}> 
+                                            { description }
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="footer-heading">
+                        Thanks for stopping by <MdOutlineWavingHand/>. Feel free follow me on <a href="https://twitter.com/adipoluri" target="_blank" rel="noreferrer">Twitter</a>, <a href="https://www.instagram.com/adi.poluri/" target="_blank" rel="noreferrer">Instagram</a>, or <a href="https://www.linkedin.com/in/adityapoluri/" target="_blank" rel="noreferrer">LinkedIn</a>, or even send me an <a href="mailto:adipoluri@gmail.com">Email</a>.
                         </div>
                     </div>
-                    ))}
+                    <div className="footer">
+                        Built with <AiFillHeart/> by Adi Poluri <a href="https://github.com/adipoluri/adipoluri.github.io" target="_blank" rel="noreferrer"><AiFillGithub /></a>
+                    </div>
                 </Html>
             </group>
         </Block>
@@ -161,19 +203,15 @@ function Experience() {
 
 //Experience, Education, Projects etc.
 function Content() {
-    const { canvasWidth, canvasHeight } = useBlock()
     return (
         <> 
             <Introduction />
             <Experience />
-            <Block factor={1.25} offset={8}>
-            <Html style={{ color: "white" }} className="bottom-left" position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
-                Culture is not your friend.
-            </Html>
-            </Block>
         </>
     )
 }
+
+
 
 //Fade-in
 function Startup() {
@@ -181,6 +219,8 @@ function Startup() {
     useFrame(() => (ref.current.material.opacity = lerp(ref.current.material.opacity, 0, 0.015)))
     return <Plane ref={ref} color="#0e0e0f" position={[0, 0, 200]} scale={[100, 100, 1]} />
 }
+
+
 
 //Lighting Setup
 function Lighting() {
@@ -223,9 +263,7 @@ export default function Home() {
             </Suspense>
         </Canvas>
         <div className="scrollArea" ref={scrollArea} onScroll={onScroll} onPointerMove={onPointerMove}>
-            {new Array(state.sections).fill().map((_, index) => (
-            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }} />
-            ))}
+            <div style={{ height: `1000vh` }} />
         </div>
     </>
   )
