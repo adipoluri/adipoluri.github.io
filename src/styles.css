@@ -197,6 +197,20 @@ a.yggdrasil-link{
   -ms-animation: fadeIn 2.5s;
 }
 
+.center-heading {
+  transform: translate3d(3%, -100%, 0) !important;
+  font-size: min(6.5vw,5.5em);
+  font-weight: 700;
+  color: var(--c-primary);
+  animation: fadeIn 2.5s;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-animation: fadeIn 2.5s;
+  -moz-animation: fadeIn 2.5s;
+  -o-animation: fadeIn 2.5s;
+  -ms-animation: fadeIn 2.5s;
+}
+
 .bottom-left {
   padding: 1.5rem;
   font-size: 2em;
@@ -249,7 +263,8 @@ a.yggdrasil-link{
 .technology-list {
   font-size:  min(2.5vw,1rem);
   font-weight: 500;
-  word-spacing:  1em;
+  display:inline-flex;
+  justify-content:right;
 }
 
 

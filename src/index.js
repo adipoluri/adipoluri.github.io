@@ -5,13 +5,25 @@ import{HashRouter, Routes, Route} from "react-router-dom"
 import "./styles.css"
 import Home from"./pages/home"
 import LinkDrasilPage from "./pages/linkdrasil"
+import ConstructionPage from "./pages/construction"
 
-console.info(`Welcome fellow internet explorer! Thanks for visiting. 🙇🏻‍♂️
-Let me tell you a bit about this site. . 👀 https://github.com/dannygarcia/dannygarcia.github.com
-If you have any questions or issues let me know: @dannygarcia. 😎 My condolences for your GPU. 🙏🏻`);
+let underconstruction = true
+
+console.info(`Welcome fellow internet explorer! Thanks for dropping by 🙇🏻‍♂️. I built this site using react and three.js! 
+If you would like to see more, head over to -> https://github.com/adipoluri/adipoluri.github.io .
+If you have any questions or issues let me know @adipoluri`);
 
 
 function App() {
+
+  if(underconstruction){
+    return (
+      <>
+        <ConstructionPage/>
+      </>
+    )
+  }
+  
   return (
     <>  
       <HashRouter>

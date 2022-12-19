@@ -1,6 +1,5 @@
 //React
 import React, { Suspense, useEffect, useRef} from "react"
-import { Link } from 'react-router-dom';
 //Three
 import { Canvas, useLoader, useFrame} from "@react-three/fiber"
 import { Html} from "@react-three/drei"
@@ -173,8 +172,12 @@ function Experience() {
                                     <div style={{display:stackType}}>  
                                         <div className="entry title" style={{margin:paddingTitle}}>
                                             {githubLink===""?projectName:<a href={githubLink} target="_blank" rel="noreferrer">{ projectName }</a>}
-                                            <div className="technology-list">
-                                                { technologies }
+                                            <div>
+                                                <div className="technology-list"> 
+                                                    {technologies.map((name) => (
+                                                        <i style={{padding:"0 2em 0 0",textAlign:"center"}}>{name}</i>
+                                                    ))}
+                                                </div>
                                             </div>
                                             {githubLink===""?"":<a href={githubLink} target="_blank" rel="noreferrer"><AiFillGithub /></a>}
                                             {ytLink===""?"":<a href={ytLink} target="_blank" rel="noreferrer"><AiOutlineYoutube /></a>}
