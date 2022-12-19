@@ -15,15 +15,23 @@ import PhysicsBalls from "../components/Balls"
 //Landing
 function Landing() {
     const { contentMaxWidth: w, canvasWidth, canvasHeight, mobile } = useBlock()
+    const pixelWidth = w * state.zoom
     return (
         <>
             <PhysicsBalls />
             <Dots />
-            <Html className="center-heading" position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
-                <div>
-                    🛠⚙️Under Construction... 👷🏾‍♂️🏗 
-                </div>
-            </Html>
+            <Block factor={1.0}>
+                <Html>
+                    <div className="center-heading">
+                        Under Construction...🛠⚙️👷🏾‍♂️🏗
+                    </div>
+                </Html>
+            </Block>
+            <Block factor={1.0}>
+                <Html className="bottom-left" style={{ width: pixelWidth}} position={[-canvasWidth / 2, -canvasHeight / 2, 0]}>
+                    Will Return{mobile ? <br/> : ""} in One Week 😊
+                </Html>
+            </Block>
         </>
     )
 }
