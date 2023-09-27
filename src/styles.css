@@ -94,12 +94,15 @@
 :root {
   font-size: 20px;
   --c-primary: rgb(209, 197, 173);
-  --c-secondary: rgba(200,200,200,.85);
+  --c-secondary: #c8c8c8d9;
+  --c-secondary2: rgba(220,220,220,1.0);
   --c-tertiary: rgba(61, 58, 50, 0.45);
   --c-tertiary2: hsl(88, 25%, 11%, .5);
 
   --v-space: 3rem;
   --border-radius: min(10vw, var(--v-space));
+  --border-radius-intro: min(2vw, var(--v-space));
+
 }
 
 ::selection {
@@ -123,6 +126,13 @@ a {
   pointer-events: auto;
   /* text-decoration: none; */
   font-weight: 600;
+  text-decoration: none;
+
+}
+
+li {
+  display: list-item;
+  margin-top: 10px;
 }
 
 a:focus,
@@ -130,14 +140,24 @@ a:hover {
   color: #8b8b8b;
 }
 
+.icon{
+  color: var(--c-secondary2);
+  margin-right: 0.5em;
+}
+
+/* Yggdrasil Icon */
 a.yggdrasil-link{
   pointer-events: auto;
 }
 
 .yggdrasil{
+  z-index: 100000000;
   opacity: 0.3;
   padding: 1.5rem;
   animation: fadeIn 2.5s;
+  position: absolute;
+  top: 0;
+  right: 0;
   -webkit-animation: fadeIn 2.5s;
   -moz-animation: fadeIn 2.5s;
   -o-animation: fadeIn 2.5s;
@@ -159,6 +179,29 @@ a.yggdrasil-link{
 }
 
 .yggdrasil:hover{
+  opacity: 1.0;
+  scale:1.1;
+}
+
+.home{
+  position:absolute;
+  top:10;
+  right:15;
+  opacity: 0.3;
+  transform-origin: center center;
+  padding: 1.5rem;
+  animation: fadeIn 2.5s;
+  -webkit-animation: fadeIn 2.5s;
+  -moz-animation: fadeIn 2.5s;
+  -o-animation: fadeIn 2.5s;
+  -ms-animation: fadeIn 2.5s;
+}
+
+a.home-link{
+  pointer-events: auto;
+}
+
+.home:hover{
   opacity: 1.0;
   scale:1.1;
 }
@@ -253,6 +296,11 @@ a.yggdrasil-link{
   font-weight: 600;
 }
 
+.winner.title{
+  font-size:  min(3vw,1.25rem);
+  font-weight: 600;
+}
+
 .entry.description{
   font-weight: normal;
   font-size:  min(4vw,1.3em);
@@ -262,8 +310,7 @@ a.yggdrasil-link{
 .technology-list {
   font-size:  min(2.5vw,1rem);
   font-weight: 500;
-  display:inline-flex;
-  justify-content:right;
+  color: var(--c-primary);
 }
 
 
@@ -284,8 +331,8 @@ a.yggdrasil-link{
 
 .blur-box {
   background: var(--c-tertiary2);
-  backdrop-filter: saturate(180%) blur(40px);
-  -webkit-backdrop-filter: saturate(180%) blur(40px);
+  backdrop-filter: saturate(180%) blur(80px);
+  -webkit-backdrop-filter: saturate(180%) blur(80px);
   border: 0px;
   position: relative;
   padding: 1.5rem 2rem 1.5rem 2rem;
@@ -309,10 +356,82 @@ a.yggdrasil-link{
   border-bottom-right-radius: var(--border-radius);
 }
 
+
+.blur-box.intro{
+  border-top-left-radius: var(--border-radius-intro);
+  border-top-right-radius: var(--border-radius-intro);
+  border-bottom-left-radius: var(--border-radius-intro);
+  border-bottom-right-radius: var(--border-radius-intro);
+}
+
 .canvas > div {
   z-index: 10000000;
 }
 
+.header {
+  pointer-events: none;
+  position: absolute;
+  top: 2em;
+  left: 0;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 900;
+  font-size: 0.8em;
+  width: 100%;
+  text-align: center;
+}
+
+.header > span {
+  padding: 0 3.25em;
+  letter-spacing: 0.4em;
+  position: relative;
+}
+
+.header > span.active::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 20px;
+  height: 2px;
+  background: white;
+}
+
+.middle {
+  pointer-events: none;
+  position: absolute;
+  bottom: 2.5em;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  font-size: 2em;
+  letter-spacing: 0.5em;
+  text-align: center;
+  width: 100%;
+}
+
+.middle > h1 {
+  line-height: 0.9em;
+  font-weight: 100;
+}
+
+.middle > h1::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 2px;
+  background: white;
+}
+
+.middle > h2 {
+  font-size: 1em;
+  line-height: 0px;
+  font-weight: 100;
+  letter-spacing: 0.25em;
+  font-style: italic;
+}
 #root > div > div {
   pointer-events: none;
 }
@@ -356,4 +475,15 @@ a.yggdrasil-link{
 @-ms-keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.container {
+  /* hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* hide scrollbar for chrome, safari and opera */
+.container::-webkit-scrollbar {
+  display: none;
 }

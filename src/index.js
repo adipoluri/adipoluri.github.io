@@ -7,7 +7,7 @@ import Home from"./pages/home"
 import LinkDrasilPage from "./pages/linkdrasil"
 import ConstructionPage from "./pages/construction"
 
-let underconstruction = true
+let underconstruction = false
 
 console.info(`Welcome fellow internet explorer! Thanks for dropping by 🙇🏻‍♂️. I built this site using react and three.js! 
 If you would like to see more, head over to -> https://github.com/adipoluri/adipoluri.github.io .
