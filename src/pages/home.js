@@ -108,7 +108,7 @@ function Introduction() {
                 Hey there cyber traveler! 🚀 I'm <b>Adi Poluri</b>, and I'm thrilled to have you drop by my digital realm. I am a 4th year Computer Science student @ <a href="https://www.ubc.ca/">UBC</a> in beautiful Vancouver, British Columbia.  
                 I'm incredibly passionate about technology, and my mission is to craft unique and interesting experiences for everyone to enjoy. 
                 <br/><br/>
-                When I'm not knee-deep in work or tinkering with my <a href="https://github.com/adipoluri">projects</a>, you'll probably catch me <a href="https://maplebacon.org/">capturing the flag</a> ⛳️,  
+                When I'm not knee-deep in work or tinkering with my <a href="https://github.com/adipoluri">projects</a>, you'll probably catch me ,  
                 going on adventures and <a href="https://www.instagram.com/cometlinear/?hl=en">taking some sweet pics</a> 📸, 
                 cooking up some <a href="https://4d1games.itch.io/">pixelated adventures</a> 👾, 
                 and maybe even <a href="https://www.youtube.com/watch?v=WbInvB3xzDs&t=19s">training some AI minions for world domination</a> 🦾. At this stage in my life, my goal is to maintain a perpetual sense of curiosity and excitement about the world that surrounds us!
