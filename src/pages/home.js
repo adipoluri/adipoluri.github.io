@@ -78,6 +78,8 @@ function Introduction() {
   const { contentMaxWidth: w, canvasWidth, margin, mobile } = useBlock()
   
   const image = useLoader(TextureLoader,(state.introduction.image))
+  image.minFilter = LinearFilter
+  
 
   const size = state.introduction.aspect < 1 && !mobile ? 0.5 : 1
   const alignRight = (canvasWidth - w * size - margin) / 2
