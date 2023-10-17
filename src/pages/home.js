@@ -296,7 +296,7 @@ export default function Home() {
             </Suspense>
         </Canvas>
         <div className="scrollArea" ref={scrollArea} onScroll={onScroll} onPointerMove={onPointerMove}>
-            <div style={{ height: `1000vh` }} />
+            <div style={{ height: "1500vh" }} />
         </div>
     </>
   )
