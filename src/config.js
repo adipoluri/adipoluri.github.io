@@ -45,7 +45,7 @@ const state = {
   palette: {
     textColor:"#ebddc3",
     accentColor:"#d1c5ad",
-    singleColorMode:true,
+    singleColorMode:false,
     ballSingle:61,
     ballMultiple: [2,8,13,14,15,29,50,51, 53, 54, 61, 62, 66, 73, 95, 96] //16
   },
@@ -58,7 +58,7 @@ const state = {
     { x: 0, offset: 0.15, pos: new Vector3(), scale: 14, factor: 4 },
   ],
   top: createRef(),
-  ballCount:20,
+  ballCount:30,
 }
 
 export default state
