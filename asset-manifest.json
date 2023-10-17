@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.490415db.css",
-    "main.js": "/static/js/main.1ed600de.js",
+    "main.css": "/static/css/main.a6c4b6d1.css",
+    "main.js": "/static/js/main.c0a9bb0e.js",
     "static/media/AvenirNext-DemiBoldItalic.woff2": "/static/media/AvenirNext-DemiBoldItalic.8317ba25db775dc52c1d.woff2",
     "static/media/AvenirNext-MediumItalic.woff2": "/static/media/AvenirNext-MediumItalic.c8955fcebf69cefb52da.woff2",
     "static/media/AvenirNext-Regular.woff2": "/static/media/AvenirNext-Regular.9e8f97b142707392cc19.woff2",
@@ -16,11 +16,11 @@
     "static/media/AvenirNext-HeavyItalic.woff2": "/static/media/AvenirNext-HeavyItalic.d092a0859b5007331c9c.woff2",
     "static/media/yggdrasil.svg": "/static/media/yggdrasil.6ced3f7f8a1a98ce4da48fccf1d5a545.svg",
     "index.html": "/index.html",
-    "main.490415db.css.map": "/static/css/main.490415db.css.map",
-    "main.1ed600de.js.map": "/static/js/main.1ed600de.js.map"
+    "main.a6c4b6d1.css.map": "/static/css/main.a6c4b6d1.css.map",
+    "main.c0a9bb0e.js.map": "/static/js/main.c0a9bb0e.js.map"
   },
   "entrypoints": [
-    "static/css/main.490415db.css",
-    "static/js/main.1ed600de.js"
+    "static/css/main.a6c4b6d1.css",
+    "static/js/main.c0a9bb0e.js"
   ]
 }
