@@ -105,17 +105,17 @@ function Introduction() {
                 className="blur-box both"
                 >
             <div tabIndex={index}>
-                Hey there cyber traveler! 🚀 I'm <b>Adi Poluri</b>, and I'm thrilled to have you drop by my digital realm. I am a 4th year Computer Science student @ <a href="https://www.ubc.ca/">UBC</a> in beautiful Vancouver, British Columbia.  
+                Hey there! I'm <b>Adi Poluri</b>, and I'm thrilled to have you drop by my website. I'm a 4th year Computer Science student @ <a href="https://www.ubc.ca/">UBC</a> in beautiful Vancouver, British Columbia.  
                 I'm incredibly passionate about technology, and my mission is to craft unique and interesting experiences for everyone to enjoy. 
                 <br/><br/>
-                When I'm not knee-deep in work or tinkering with my <a href="https://github.com/adipoluri">projects</a>, you'll probably catch me ,  
+                When I'm not knee-deep in work or tinkering with my <a href="https://github.com/adipoluri">projects</a>, you'll probably catch me 
                 going on adventures and <a href="https://www.instagram.com/cometlinear/?hl=en">taking some sweet pics</a> 📸, 
-                cooking up some <a href="https://4d1games.itch.io/">pixelated adventures</a> 👾, 
-                and maybe even <a href="https://www.youtube.com/watch?v=WbInvB3xzDs&t=19s">training some AI minions for world domination</a> 🦾. At this stage in my life, my goal is to maintain a perpetual sense of curiosity and excitement about the world that surrounds us!
+                cooking up some <a href="https://4d1games.itch.io/">pixelated games</a> 👾, 
+                and maybe even <a href="https://www.youtube.com/watch?v=WbInvB3xzDs&t=19s">training some AI minions</a> 🦾. At this stage in my life, my goal is to maintain a perpetual sense of curiosity and excitement about the world that surrounds us!
                 <br/><br/>
-                If you have any questions or would like to collaborate on a project, I am always interested in meeting new people so feel free to send me an <a href = "mailto: adipoluri@gmail.com">email</a> or shoot me a dm on my socials.
+                If you have any questions or would like to collaborate on a project, I am always interested in meeting new people so feel free to send me an <a href = "mailto: adipoluri@gmail.com">email</a> or shoot me a dm on <a href="https://twitter.com/adipoluri" target="_blank" rel="noreferrer">Twitter</a>, <a href="https://www.instagram.com/adi.poluri/" target="_blank" rel="noreferrer">Instagram</a>, or <a href="https://www.linkedin.com/in/adityapoluri/" target="_blank" rel="noreferrer">LinkedIn</a>.
                 <br/><br/>
-                Thank you for taking the time to visit my corner of the internet! <br/>🚀💻🎶🎮               
+                Thanks for dropping by! <br/>🚀💻🎶🎮               
 
             </div>
             </Html>
@@ -178,7 +178,7 @@ function Experience() {
                         </div>
                         
                         <div style={{flex:1, padding:"0 0 10vh 0"}}>
-                            {state.projects.sections.map(({ projectName, winner, githubLink, ytLink, relevantLink, devpostLink, technologies, description }, index) => (
+                            {state.projects.sections.map(({ projectName, winner, githubLink, ytLink, imLink, relevantLink, devpostLink, technologies, description }, index) => (
                                 <div key={projectName} className="blur-box" style={{ width: pixelWidth}} tabIndex={index}>
                                     <div style={{display:stackType}}>  
                                         <div className="entry title" style={{margin:paddingTitle}}>
@@ -198,9 +198,16 @@ function Experience() {
                                             {ytLink===""?"":<a className="icon" href={ytLink} target="_blank" rel="noreferrer"><AiOutlineYoutube /></a>}
                                             {relevantLink===""?"":<a className="icon" href={relevantLink} target="_blank" rel="noreferrer"><AiOutlineLink /></a>}
                                             {devpostLink===""?"":<a className="icon" href={devpostLink} target="_blank" rel="noreferrer"><SiDevpost /></a>}
+                                            <div className="projectImage">
+                                                {imLink===""?"":
+                                                <a href={ytLink} target="_blank" rel="noopener noreferrer">
+                                                    <img src={imLink} alt="If you see this something broke 🧐" className="projectImage"/>
+                                                </a>
+                                                }
+                                            </div>
                                         </div>
                                         <div className="entry description" style={{padding:paddingDescription}}> 
-                                            { description }
+                                            { parse(description) }
                                         </div>
                                     </div>
                                 </div>
