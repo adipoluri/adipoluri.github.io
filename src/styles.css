@@ -303,7 +303,7 @@ a.home-link{
 
 .entry.description{
   font-weight: normal;
-  font-size:  min(4vw,1.3em);
+  font-size:  min(3.5vw,1.25rem);
   line-height: 1.4;
   margin-top: auto;
   margin-bottom: auto;
