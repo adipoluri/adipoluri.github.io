@@ -32,7 +32,7 @@ export default function Diamonds() {
 
   useFrame(() => {
     state.diamonds.forEach((data, i) => {
-      const t = clock.getElapsedTime() / 2
+      const t = clock.getElapsedTime() / 6
       const { x, offset, scale, factor } = data
       const s = (contentMaxWidth / 35) * scale
       data.pos.set(mobile ? 0 : x, lerp(data.pos.y, -sectionHeight * offset * factor + (state.top.current / state.zoom) * factor, 0.1), 0)

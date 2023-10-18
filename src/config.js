@@ -58,7 +58,7 @@ const state = {
     { x: 0, offset: 0.15, pos: new Vector3(), scale: 14, factor: 4 },
   ],
   top: createRef(),
-  ballCount:20,
+  ballCount: 6,
 }
 
 export default state

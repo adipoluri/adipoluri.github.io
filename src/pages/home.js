@@ -52,9 +52,9 @@ function Landing() {
                     </Html>
                 </Block>
                 <Block factor={1.2}>
-                    <Text left size={w * 0.15} position={[-w/3.2, mobile ? -2 : 0.5, -1]} color={state.palette.textColor}>
+                    {/* <Text left size={w * 0.15} position={[-w/3.2, mobile ? -2 : 0.5, -1]} color={state.palette.textColor}>
                         ADI POLURI . TECH !
-                    </Text>
+                    </Text> */}
                 </Block>
                 <Block factor={1.0}>
                     <Html className="bottom-left" position={[-canvasWidth / 2, -canvasHeight / 2.5, 0]}>
