@@ -18,7 +18,6 @@ const colours = Array.from({ length: 200 }, () => ({ color: niceColors[swatchInd
 
 
 function Balls({ mat = new Matrix4(), vec = new Vector3(), ...props }) {
-  const {mobile} = useBlock()
   const ballAmount =  state.ballCount;
   console.info("Set Ballcount to " + String(ballAmount))
    
@@ -31,13 +30,13 @@ function Balls({ mat = new Matrix4(), vec = new Vector3(), ...props }) {
       ref.current.getMatrixAt(i, mat)
       // Normalize the position and multiply by a negative force.
       // This is enough to drive it towards the center-point.
-      api.at(i).applyForce(vec.setFromMatrixPosition(mat).normalize().multiplyScalar(-50).toArray(), [Math.sin(threeState.clock.elapsedTime), -Math.sin(threeState.clock.elapsedTime),0])
+      api.at(i).applyForce(vec.setFromMatrixPosition(mat).normalize().multiplyScalar(-35).toArray(), [Math.sin(threeState.clock.elapsedTime), -Math.sin(threeState.clock.elapsedTime),0])
     }
   })
 
   return( 
     <instancedMesh ref={ref} castShadow receiveShadow args={[null, null, ballAmount]} >
-        <sphereGeometry args={[1, 64, 64]}>
+        <sphereGeometry args={[1, 32, 32]}>
             <instancedBufferAttribute attach="attributes-color" args={[colorArray, 3]} />
         </sphereGeometry>
       <meshToonMaterial vertexColors />
